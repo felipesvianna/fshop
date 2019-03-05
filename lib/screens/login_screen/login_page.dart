@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/tapableText.dart'; //show tapableText widget
 import './generate_login_form.dart';
+import './social_media_buttons.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -28,29 +29,9 @@ class _LoginPageState extends State<LoginPage>{
                 image: AssetImage("assets/img/logo.png")
               ),
               Form(
-                child: generateLoginForm()
+                child: generateLoginForm() //It returns a container
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  RaisedButton(
-                    padding: EdgeInsets.symmetric(horizontal: 20.0),
-                    textColor: Colors.white,
-                    color: Colors.blue,
-                    child: Text("Facebook"),
-                    onPressed: () {},
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-                  ),
-                  RaisedButton(
-                      padding: EdgeInsets.symmetric(horizontal: 20.0),
-                      textColor: Colors.white,
-                      color: Colors.red,
-                      child: Text("Google"),
-                      onPressed: () {},
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-                  )
-                ]
-              ),
+              socialMediaButtons(), //It returns a row widget
               Container(
                 padding: EdgeInsets.only(top: 20, bottom: 14),
                 alignment: Alignment.center,
