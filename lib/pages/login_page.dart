@@ -11,7 +11,15 @@ class _LoginPageState extends State<LoginPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.greenAccent,
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Image(
+            image: AssetImage("assets/img/bg_login_screen.png"),
+            fit:BoxFit.cover,
+          )
+        ],
+      ),
     );
   }
 }
