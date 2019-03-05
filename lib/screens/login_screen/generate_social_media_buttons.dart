@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget socialMediaButtons(){
+Widget generateSocialMediaButtons(){
   return Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
