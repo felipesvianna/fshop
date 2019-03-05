@@ -30,14 +30,6 @@ class _LoginPageState extends State<LoginPage>{
               Form(
                 child: generateLoginForm()
               ),
-              RaisedButton(
-                padding: EdgeInsets.symmetric(horizontal: 80.0),
-                textColor: Colors.white,
-                color: Colors.green,
-                child: Text("LOGIN"),
-                onPressed: () {},
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
