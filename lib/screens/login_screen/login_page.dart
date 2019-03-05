@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/tapableText.dart';
+import '../../widgets/tapableText.dart'; //show tapableText widget
 
 class LoginPage extends StatefulWidget {
   @override
