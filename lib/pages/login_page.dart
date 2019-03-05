@@ -41,6 +41,11 @@ class _LoginPageState extends State<LoginPage>{
                         ),
                         keyboardType: TextInputType.text,
                         obscureText: true,
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(top: 20),
+                        alignment: Alignment.centerRight,
+                        child: Text('Esqueceu a senha?', style: TextStyle(fontSize: 12),),
                       )
                     ],
                   ),
