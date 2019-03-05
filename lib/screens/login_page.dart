@@ -88,9 +88,9 @@ class _LoginPageState extends State<LoginPage>{
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text('Novo por aqui? ', style: TextStyle(fontSize: 14),),
-                    Container(
-                      child:
-                      Text('Cadastre-se!', style: TextStyle(fontSize: 14, color: Colors.red, decoration: TextDecoration.underline))
+                    GestureDetector(
+                      onTap: () { print("Cadastre-se! touched"); },
+                      child: Text('Cadastre-se!', style: TextStyle(fontSize: 14, color: Colors.red, decoration: TextDecoration.underline))
                     )
                   ]
                 )
