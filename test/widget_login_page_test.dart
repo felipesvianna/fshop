@@ -9,6 +9,7 @@ import './testing_util.dart';
 void main() {
   /* Functional tests */
   testWidgets('test_if_can_put_text_on_email_field_on_login_screen', (WidgetTester tester) async {
+    print('test_if_can_put_text_on_email_field_on_login_screen');
     await tester.pumpWidget(buildTestableWidget(LoginPage()));
 
     await tester.enterText(find.byKey(Key('email_form_field')), 'felipe@felipe.com');
@@ -17,6 +18,7 @@ void main() {
   });
 
   testWidgets('test_if_can_put_text_on_password_field_on_login_screen', (WidgetTester tester) async {
+    print('test_if_can_put_text_on_password_field_on_login_screen');
     await tester.pumpWidget(buildTestableWidget(LoginPage()));
 
     await tester.enterText(find.byKey(Key('password_form_field')), 'password');
@@ -25,6 +27,8 @@ void main() {
   });
 
   testWidgets('test_if_esqueceu_a_senha_is_tappable', (WidgetTester tester) async {
+    print('test_if_esqueceu_a_senha_is_tappable');
+    
     //Uses generate_login_form.dart file
     Finder forgotPasswordButton;
     bool touched = false;
@@ -42,6 +46,7 @@ void main() {
   });
 
   testWidgets('test_if_Cadastre-se_is_tappable', (WidgetTester tester) async {
+    print('test_if_Cadastre-se_is_tappable');
     //Uses generate_signup_link.dart file
     Finder signUpButton;
     bool touched = false;
@@ -59,6 +64,7 @@ void main() {
   });
 
   testWidgets('test_if_login_button_is_tappable', (WidgetTester tester) async {
+    print('test_if_login_button_is_tappable');
     //Uses generate_login_form.dart file
     Finder loginButton;
     bool touched = false;
@@ -76,6 +82,7 @@ void main() {
   });
 
   testWidgets('test_if_facebook_button_is_tappable', (WidgetTester tester) async {
+    print('test_if_facebook_button_is_tappable');
     //Uses generate_social_media_buttons.dart file
     Finder facebookButton;
     bool touched = false;
@@ -92,6 +99,7 @@ void main() {
     expect(touched, true);
   });
   testWidgets('test_if_google_button_is_tappable', (WidgetTester tester) async {
+    print('test_if_google_button_is_tappable');
     //Uses generate_social_media_buttons.dart file
     Finder googleButton;
     bool touched = false;
