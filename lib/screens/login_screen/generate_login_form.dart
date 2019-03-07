@@ -10,12 +10,14 @@ Widget generateLoginForm (){
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   TextFormField(
+                    key: Key('email_form_field'),
                     decoration: InputDecoration(
                       labelText: "E-Mail"
                     ),
                     keyboardType: TextInputType.emailAddress,
                   ),
                   TextFormField(
+                    key: Key('password_form_field'),
                     decoration: InputDecoration(
                       labelText: "Senha"
                     ),
