@@ -59,7 +59,7 @@ void main() {
   });
 
   testWidgets('test_if_login_button_is_tappable', (WidgetTester tester) async {
-    //Uses generate_signup_link.dart file
+    //Uses generate_login_form.dart file
     Finder loginButton;
     bool touched = false;
 
@@ -75,9 +75,39 @@ void main() {
     expect(touched, true);
   });
 
-  //test_if_login_button_is_tappable
-  //test_if_facebook_button_is_tappable
-  //test_if_google_button_is_tappable
+  testWidgets('test_if_facebook_button_is_tappable', (WidgetTester tester) async {
+    //Uses generate_social_media_buttons.dart file
+    Finder facebookButton;
+    bool touched = false;
+
+    await tester.pumpWidget(buildTestableWidget(LoginPage()));
+
+    facebookButton = find.byKey(Key('facebook_raised_button'));
+
+    if(facebookButton.evaluate().isNotEmpty){ //Check if can find the tappable text
+      await tester.tap(facebookButton);
+      touched = true;
+    }
+    
+    expect(touched, true);
+  });
+  testWidgets('test_if_google_button_is_tappable', (WidgetTester tester) async {
+    //Uses generate_social_media_buttons.dart file
+    Finder googleButton;
+    bool touched = false;
+
+    await tester.pumpWidget(buildTestableWidget(LoginPage()));
+
+    googleButton = find.byKey(Key('google_raised_button'));
+
+    if(googleButton.evaluate().isNotEmpty){ //Check if can find the tappable text
+      await tester.tap(googleButton);
+      touched = true;
+    }
+    
+    expect(touched, true);
+  });
+
   //test_if_login_screen_with_the_keyboard_is_scrolling
 
   //test_if_background_image_is_loading
