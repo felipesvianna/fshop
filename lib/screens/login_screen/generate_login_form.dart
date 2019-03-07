@@ -27,7 +27,7 @@ Widget generateLoginForm (){
                   Container(
                     padding: EdgeInsets.only(top: 20, bottom: 10),
                     alignment: Alignment.centerRight,
-                    child: tapableText(Text('Esqueceu a senha?', style: TextStyle(fontSize: 12)),
+                    child: tapableText(Text('Esqueceu a senha?', key: Key('forgot_password_tappable_text'), style: TextStyle(fontSize: 12)),
                       (){print('Esqueceu a senha? tocado');})
                   ),
                   RaisedButton(

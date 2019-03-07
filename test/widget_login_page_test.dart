@@ -23,10 +23,22 @@ void main() {
     expect(find.text('password'), findsOneWidget);
   });
 
-  //test_if_esqueceu_a_senha_is_tappable
   testWidgets('test_if_esqueceu_a_senha_is_tappable', (WidgetTester tester) async {
+    Finder forgotPasswordButton;
+    bool touched = false;
+
+    await tester.pumpWidget(buildTestableWidget(LoginPage()));
+
+    forgotPasswordButton = find.byKey(Key('forgot_password_tappable_text'));
+
+    if(forgotPasswordButton.evaluate().isNotEmpty){ //Check if can find the tappable text
+      await tester.tap(forgotPasswordButton);
+      touched = true;
+    }
     
+    expect(touched, true);
   });
+
 
   //test_if_Cadastre-se_is_tappable
   //test_if_login_button_is_tappable
