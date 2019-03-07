@@ -1,3 +1,5 @@
+// This is the login_page widget test.
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -20,11 +22,11 @@ void main() {
     expect(find.text('password'), findsOneWidget);
   });
 
-  //Test if background image is load
-  //Test if esqueceu a senha is tappable
-  //Test if Cadastre-se is tappable
-  //Test if login button is working
-  //Test if facebook button is working
-  //Test if google button is working
-  //Test if login screen with the keyboard is scrolling
+  //test_if_background_image_is_loading
+  //test_if_esqueceu_a_senha_is_tappable
+  //test_if_Cadastre-se_is_tappable
+  //test_if_login_button_is_working
+  //test_if_facebook_button_is_working
+  //test_if_google_button_is_working
+  //test_if_login_screen_with_the_keyboard_is_scrolling
 }
