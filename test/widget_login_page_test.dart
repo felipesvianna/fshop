@@ -58,6 +58,23 @@ void main() {
     expect(touched, true);
   });
 
+  testWidgets('test_if_login_button_is_tappable', (WidgetTester tester) async {
+    //Uses generate_signup_link.dart file
+    Finder loginButton;
+    bool touched = false;
+
+    await tester.pumpWidget(buildTestableWidget(LoginPage()));
+
+    loginButton = find.byKey(Key('login_raised_button'));
+
+    if(loginButton.evaluate().isNotEmpty){ //Check if can find the tappable text
+      await tester.tap(loginButton);
+      touched = true;
+    }
+    
+    expect(touched, true);
+  });
+
   //test_if_login_button_is_tappable
   //test_if_facebook_button_is_tappable
   //test_if_google_button_is_tappable

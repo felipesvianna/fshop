@@ -31,6 +31,7 @@ Widget generateLoginForm (){
                       (){print('Esqueceu a senha? tocado');})
                   ),
                   RaisedButton(
+                    key: Key('login_raised_button'),
                     padding: EdgeInsets.symmetric(horizontal: 80.0),
                     textColor: Colors.white,
                     color: Colors.green,
