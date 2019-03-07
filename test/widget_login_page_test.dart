@@ -7,6 +7,7 @@ import 'package:fshop/screens/login_screen/login_page.dart';
 import './testing_util.dart';
 
 void main() {
+  /* Functional tests */
   testWidgets('test_if_can_put_text_on_email_field_on_login_screen', (WidgetTester tester) async {
     await tester.pumpWidget(buildTestableWidget(LoginPage()));
 
@@ -24,6 +25,7 @@ void main() {
   });
 
   testWidgets('test_if_esqueceu_a_senha_is_tappable', (WidgetTester tester) async {
+    //Uses generate_login_form.dart file
     Finder forgotPasswordButton;
     bool touched = false;
 
@@ -39,8 +41,23 @@ void main() {
     expect(touched, true);
   });
 
+  testWidgets('test_if_Cadastre-se_is_tappable', (WidgetTester tester) async {
+    //Uses generate_signup_link.dart file
+    Finder signUpButton;
+    bool touched = false;
 
-  //test_if_Cadastre-se_is_tappable
+    await tester.pumpWidget(buildTestableWidget(LoginPage()));
+
+    signUpButton = find.byKey(Key('signup_tappable_text'));
+
+    if(signUpButton.evaluate().isNotEmpty){ //Check if can find the tappable text
+      await tester.tap(signUpButton);
+      touched = true;
+    }
+    
+    expect(touched, true);
+  });
+
   //test_if_login_button_is_tappable
   //test_if_facebook_button_is_tappable
   //test_if_google_button_is_tappable
