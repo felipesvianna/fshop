@@ -27,6 +27,7 @@ class _LoginPageState extends State<LoginPage>{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image(
+                  key: Key('logo_image'),
                   image: AssetImage("assets/img/logo.png")
                 ),
                 generateLoginForm(), //It returns a form

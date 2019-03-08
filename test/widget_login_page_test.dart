@@ -13,7 +13,6 @@ void main() {
     await tester.pumpWidget(buildTestableWidget(LoginPage()));
 
     await tester.enterText(find.byKey(Key('email_form_field')), 'felipe@felipe.com');
-
     expect(find.text('felipe@felipe.com'), findsOneWidget);
   });
 
@@ -116,7 +115,54 @@ void main() {
     expect(touched, true);
   });
 
+  testWidgets('test_if_tapping_the_login_screen_shows_the_keyboard', (WidgetTester tester) async {
+    expect(tester.testTextInput.isVisible, isFalse);
+
+    await tester.pumpWidget(buildTestableWidget(LoginPage()));
+
+    //Email form field
+    await tester.showKeyboard(find.byKey(Key('email_form_field')));
+
+    expect(tester.testTextInput.isVisible, isTrue);
+    tester.testTextInput.hide();
+    expect(tester.testTextInput.isVisible, isFalse);
+
+    //Password form field
+    await tester.showKeyboard(find.byKey(Key('password_form_field')));
+
+    expect(tester.testTextInput.isVisible, isTrue);
+    tester.testTextInput.hide();
+    expect(tester.testTextInput.isVisible, isFalse);
+    
+  });
+   
   //test_if_login_screen_with_the_keyboard_is_scrolling
+  testWidgets('test_if_login_screen_with_the_keyboard_is_scrolling', (WidgetTester tester) async {
+    print('test_if_login_screen_with_the_keyboard_is_scrolling');
+
+    await tester.pumpWidget(buildTestableWidget(LoginPage()));
+    
+    await tester.showKeyboard(find.byKey(Key('email_form_field')));
+    expect(tester.testTextInput.isVisible, isTrue);
+
+    final Offset middleOfContainer = tester.getCenter(find.byKey(Key('email_form_field')));
+    print(middleOfContainer);
+
+    final Offset target = tester.getCenter(find.byKey(Key('signup_tappable_text')));
+    print(target);
+
+    //Gesture
+    final TestGesture gesture = await tester.startGesture(target);
+    await gesture.moveBy(const Offset(0.0, -40.0));
+    await gesture.up();
+
+    expect(tester.testTextInput.isVisible, isTrue); //Check if the keyboard still on screen
+    print(tester.getCenter(find.byKey(Key('email_form_field'))));
+
+    await tester.pump(); // redo layout
+    expect(tester.getCenter(find.byKey(Key('signup_tappable_text'))), isNot(equals(middleOfContainer)));
+    //await gesture.up();
+  });
 
   //test_if_background_image_is_loading
 }
