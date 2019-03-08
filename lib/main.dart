@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './screens/login_screen/login_page.dart';
 import './screens/not_found_page.dart';
+import './screens/onboarding_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/homeRoute': (BuildContext context) => LoginPage(),
         '/notfoundpageRoute': (BuildContext context) => NotFoundPage(),
+        '/onboarding': (BuildContext context) => OnBoardingScreen(),
       },
       onUnknownRoute: (RouteSettings context) => MaterialPageRoute(
           builder: (context) => NotFoundPage()
