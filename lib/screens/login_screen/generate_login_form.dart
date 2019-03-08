@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/tapableText.dart'; //show tapableText widget
 
-Widget generateLoginForm (){
+Widget generateLoginForm (BuildContext context){
   return Form(
       child: Container(
               padding: const EdgeInsets.only(top: 20.0, left: 40.0, right: 40.0),
@@ -36,7 +36,9 @@ Widget generateLoginForm (){
                     textColor: Colors.white,
                     color: Colors.green,
                     child: Text("LOGIN"),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, '/onboarding');
+                    },
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
                   ),
                 ]
