@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage>{
                   key: Key('logo_image'),
                   image: AssetImage("assets/img/logo.png")
                 ),
-                generateLoginForm(), //It returns a form
+                generateLoginForm(context), //It returns a form
                 generateSocialMediaButtons(), //It returns a row
                 generateSignUpLink(), //It returns a container
               ],
