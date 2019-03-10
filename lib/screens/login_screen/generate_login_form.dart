@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/tapableText.dart'; //show tapableText widget
+import '../../util/tapableText.dart' show tapableText;
 
 Widget generateLoginForm (BuildContext context){
   return Form(

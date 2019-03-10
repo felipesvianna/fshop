@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/tapableText.dart';
+import '../../util/tapableText.dart' show tapableText;
 
 Widget generateSignUpLink(){
   return Container(
