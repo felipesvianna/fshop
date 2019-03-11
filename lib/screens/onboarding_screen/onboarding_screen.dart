@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../not_found_page.dart' show NotFoundPage; //For testing
 import './dots_indicator.dart';
 import './page1.dart';
 import './page2.dart';
@@ -62,7 +63,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     key: Key('skipButton'),
                     child: Text('Pular', style: TextStyle(color: Colors.black),),
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/notFoundPageRoute');
+                      //Navigator.pushReplacementNamed(context, '/notFoundPageRoute');
+                      Navigator.pushReplacement(
+                          context, MaterialPageRoute(builder: (BuildContext context) => NotFoundPage())
+                      );//For testing. Can't test with pushReplacementNamed
                     },
                   )
                 ],
