@@ -28,7 +28,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    bool skipButton = page == _pages.length - 1;
     return new Scaffold(
       backgroundColor: Colors.transparent,
       body: new Stack(
@@ -60,11 +59,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 title: null,
                 actions: <Widget>[
                   FlatButton(
+                    key: Key('skipButton'),
                     child: Text('Pular', style: TextStyle(color: Colors.black),),
-                    onPressed: skipButton ? (){
-                      Navigator.pop(context);
-                    } : (){
-                      _controller.animateToPage(page + 1, duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, '/notFoundPageRoute');
                     },
                   )
                 ],
