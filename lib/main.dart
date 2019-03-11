@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
       //Routes
       routes: <String, WidgetBuilder>{
         '/homeRoute': (BuildContext context) => LoginPage(),
-        '/notfoundpageRoute': (BuildContext context) => NotFoundPage(),
-        '/onboarding': (BuildContext context) => OnBoardingPage(),
+        '/notFoundPageRoute': (BuildContext context) => NotFoundPage(),
+        '/onBoardingRoute': (BuildContext context) => OnBoardingPage(),
       },
       onUnknownRoute: (RouteSettings context) => MaterialPageRoute(
           builder: (context) => NotFoundPage()
