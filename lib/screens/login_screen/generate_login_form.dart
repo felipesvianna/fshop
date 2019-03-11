@@ -37,7 +37,7 @@ Widget generateLoginForm (BuildContext context){
                     color: Colors.green,
                     child: Text("LOGIN"),
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, '/onboarding');
+                      Navigator.pushNamed(context, '/onBoardingRoute');
                     },
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
                   ),
