@@ -17,28 +17,30 @@ void main() {
     expect(findByText.evaluate().isEmpty, false);
   });
 
-  //test_if_the_skip_button_is_working
   testWidgets('test_if_the_skip_button_is_working', (WidgetTester tester) async {
     print('test_if_the_skip_button_is_working');
 
     Finder skipButton;
-    var findByText;
+    //var findByText;
 
     await tester.pumpWidget(buildTestableWidget(OnBoardingPage()));
     skipButton = find.byKey(Key('skipButton'));
 
     if(skipButton.evaluate().isNotEmpty){ //Check if can find the tappable text
-      findByText = find.byType(Text);
-      print(findByText.evaluate());
+      //findByText = find.byType(Text);
+      //print(findByText.evaluate());
+      expect(find.text('Oi'), findsOneWidget);
       
+      //By now, its routing to NotFoundPage. Later, change to HomePage screen
       await tester.tap(skipButton);
       await tester.pumpAndSettle();
-      findByText = find.byType(Text);
-      print(findByText.evaluate());
+      //findByText = find.byType(Text);
+      //print(findByText.evaluate());
+      expect(find.text('Em desenvolvimento'), findsOneWidget);
     }
   });
 
-  //test_if_theres_text_is_on_the_page 
+  //test_if_theres_text_is_on_the_page
   //test_if_the_pages are_swapping_to_the_left
   
 
