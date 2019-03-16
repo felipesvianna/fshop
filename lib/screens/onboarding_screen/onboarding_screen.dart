@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../not_found_page.dart' show NotFoundPage; //For testing
-import './dots_indicator.dart';
+import './dots_indicator.dart' show DotsIndicator;
 import './page1.dart';
 import './page2.dart';
 import './page3.dart';
@@ -10,11 +10,11 @@ class OnBoardingPage extends StatefulWidget {
   OnBoardingPage({Key key}) : super(key: key);
 
   @override
-  _OnBoardingPageState createState() => new _OnBoardingPageState();
+  _OnBoardingPageState createState() => _OnBoardingPageState();
 }
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
-  final _controller = new PageController();
+  final _controller = PageController();
   final List<Widget> _pages = [
     Page1(),
     Page2(),
@@ -27,15 +27,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     super.initState();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      backgroundColor: Colors.transparent,
-      body: new Stack(
-        children: <Widget>[
-          new Positioned.fill(
-            child: new PageView.builder(
-              physics: new AlwaysScrollableScrollPhysics(),
+  Widget _buildPageViewBuilder(context, controller, pages) {
+    return Positioned.fill(
+            child: PageView.builder(
+              physics: AlwaysScrollableScrollPhysics(),
               controller: _controller,
               itemCount: _pages.length,
               itemBuilder: (BuildContext context, int index) {
@@ -47,12 +42,15 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 });
               },
             ),
-          ),
-          new Positioned(
+          );
+  }
+
+  Widget _buildSkipButton() {
+    return Positioned(
             top: 0.0,
             left: 0.0,
             right: 0.0,
-            child: new SafeArea(
+            child: SafeArea(
               child: AppBar(
                 backgroundColor: Colors.transparent,
                 elevation: 0.0,
@@ -72,17 +70,20 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ],
               ),
             ),
-          ),
-          new Positioned(
+          );
+  }
+  
+  Widget _buildDotsIndicators(controller, page) {
+    return Positioned(
             bottom: 10.0,
             left: 0.0,
             right: 0.0,
-            child: new SafeArea(
-              child: new Column(
+            child: SafeArea(
+              child: Column(
                 children: <Widget>[
-                  new Padding(
+                  Padding(
                     padding: const EdgeInsets.all(40.0),
-                    child: new DotsIndicator(
+                    child: DotsIndicator(
                       controller: _controller,
                       itemCount: _pages.length,
                       onPageSelected: (int page) {
@@ -97,7 +98,18 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 ],
               ),
             ),
-          ),
+          );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: <Widget>[
+          _buildPageViewBuilder(context, _controller, _pages),
+          _buildSkipButton(),
+          _buildDotsIndicators(_controller, page)
         ],
       )
     );
