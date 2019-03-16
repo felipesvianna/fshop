@@ -17,6 +17,7 @@ void _showDebugDetailsPrintTextEvaluate (bool details) {
 
 void main() {
   testWidgets('test_if_onboarding_screen_loads', (WidgetTester tester) async {
+    print('test_if_onboarding_screen_loads');
     bool debugDetails = false; //Enable prints for debugging
 
     await tester.pumpWidget(buildTestableWidget(OnBoardingPage()));
@@ -51,6 +52,7 @@ void main() {
   });
 
   testWidgets('test_if_the_pages_has_content_and_are_swapping_to_the_left', (WidgetTester tester) async {
+    print('test_if_the_pages_has_content_and_are_swapping_to_the_left');
     bool debugDetails = false; //Enable prints for debugging
     
     await tester.pumpWidget(buildTestableWidget(OnBoardingPage()));
